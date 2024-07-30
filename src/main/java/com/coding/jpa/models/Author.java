@@ -10,6 +10,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,6 +25,8 @@ import lombok.NoArgsConstructor;
 //ToString e EqualsAndHashCode
 @Data
 @NoArgsConstructor
+@AllArgsConstructor //construttore con tutti gli argomenti
+@Builder    //ci aiuta a creare un oggetto builder
 @Entity //-> specifica a spring che questa è una Entity
 // @Table(name = "AUTHOR_TBL") //-> possiamo definire un nome per la tabella del db, in quale schema deve essere ecc
 public class Author {
@@ -63,11 +67,11 @@ public class Author {
 
     private int age;
 
-    @Column(updatable = false, nullable = false) // la rendiamo inseribile ma non aggiornabile, è solo per la creazione(esempio)
-    private LocalDateTime createdAt;
+    // @Column(updatable = false, nullable = false) // la rendiamo inseribile ma non aggiornabile, è solo per la creazione(esempio)
+    // private LocalDateTime createdAt;
     
-    @Column(insertable = false)
-    private LocalDateTime lastModified;
+    // @Column(insertable = false)
+    // private LocalDateTime lastModified;
 
 
 
