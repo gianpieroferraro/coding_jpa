@@ -17,7 +17,7 @@ public class JpaApplication {
 
 	//creaimo un bean e nei parametri facciamo la injection di AuthorRepository che sarà la injectato
 	//questo bean sarà lanciato quando avviamo l'applicazione 
-	@Bean
+	@Bean	//per disabilitarlo basta commentare questa annotation
 	public CommandLineRunner commandLineRunner(AuthorRepository repository) {
 
 		return args -> {
@@ -31,14 +31,15 @@ public class JpaApplication {
 			.build();
 
 			//usiamo la repository per salvarlo nel db
-			repository.save(author); /* tutto questo è una transazione, ma bisongna capire qual è il lifecycle di una Entity
+			repository.save(author); /* quando facciamo save, passiamo dallo stato transient a Persinsent gestito da hibernate(vedi 
+			schema -> comunqeu tutto il processo viene fatto da hibernate sottobanco per noi) tutto questo è una transazione,
+			 ma bisongna capire qual è il lifecycle di una Entity
 			**schema entityLifecicle.png**
 			*/
 
-
-
 		};
 
+
+
 	}
-	
 }

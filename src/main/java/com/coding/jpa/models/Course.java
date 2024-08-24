@@ -28,11 +28,12 @@ public class Course {
 
     private String description;
 
+    //abbiamo deciso che l'owner della relazione con autori è questa classe, quindi dobbiamo specificarlo in Author.java con MappedBy
     @ManyToMany
-    @JoinTable(
+    @JoinTable( //questo crea la Join con autori
         name = "author_courses", //-> il nome della join table
         joinColumns = {
-            @JoinColumn(name = "course_id") // -> questa è responsabile di quella che ha le informazioni della primaryKey della relazione
+            @JoinColumn(name = "course_id")//-> questa è responsabile di quella che ha le informazioni della primaryKey della relazione
         },
         inverseJoinColumns = {
             @JoinColumn(name="author_id")

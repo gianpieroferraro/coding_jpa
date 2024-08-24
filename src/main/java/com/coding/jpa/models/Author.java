@@ -77,12 +77,12 @@ public class Author {
     // private LocalDateTime lastModified;
 
 
-    /* -- creiamo una lista relativa alla relazione many to many con corsi 
-     * in jpa, le relazioni manytomany, una delle entity è considerata l'owner della relazione ed è repsponsabile di avere la 
+    /* -- creiamo una lista relativa alla relazione many to many con corsi;
+     * In jpa, le relazioni manytomany, una delle entity è considerata l'owner della relazione ed è repsponsabile di avere la 
      * foreignKey per la join, mentre l'altra non ha una foreignKey. In questo caso vogliamo che la owner della relazione sia 
      * la classe Course, quindi mettiamo l'annotation mappedby qui, mentre in Course mettiamo l'annotation  @JoinTable 
      */
-    @ManyToMany(mappedBy = "authors")
+    @ManyToMany(mappedBy = "authors") //-> author fa rifermimento al nome della lista di autori in Course.java
     private List<Course> courses;
 
 
