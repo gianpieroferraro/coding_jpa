@@ -19,7 +19,7 @@ public class JpaApplication {
 
 	//creaimo un bean e nei parametri facciamo la injection di AuthorRepository che sarà la injectato
 	//questo bean sarà lanciato quando avviamo l'applicazione 
-	@Bean	//per disabilitarlo basta commentare questa annotation
+	//@Bean	//per disabilitarlo basta commentare questa annotation
 	public CommandLineRunner commandLineRunner(AuthorRepository repository, VideoRepository videoRepository) {
 
 		return args -> {
